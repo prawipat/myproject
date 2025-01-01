@@ -79,6 +79,7 @@
       <div class="fakeimg"></div>
       <p></p>
       <p></p>
+    </div>
   </div>
 </div>
 
