@@ -10,8 +10,6 @@ if(isset($_POST['signup'])){
     $password = $_POST['loginpassword'];
     $hasedpassword = hash('sha256',$password);
 
-    // print_r($_POST);
-
     $ret = "SELECT * FROM userdata WHERE (username=:uname || useremail=:uemail)";
     $queryt = $dbh -> prepare($ret);
     $queryt->bindParam(':uname',$username,PDO::PARAM_STR);
@@ -20,7 +18,6 @@ if(isset($_POST['signup'])){
     $results = $queryt -> fetchAll(PDO::FETCH_OBJ);
 
     if($queryt-> rowCount() == 0){
-        //echo "xx";
         $sql = "INSERT INTO userdata(fullname,username,useremail,usermobile,loginpassword) VALUES (:fname,:uname,:uemail,:umobile,:upass)";
         $query = $dbh -> prepare($sql);
         $query->bindParam(':fname',$fullname,PDO::PARAM_STR);
